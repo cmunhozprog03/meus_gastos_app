@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Expense extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['descripiton', 'type', 'amount'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

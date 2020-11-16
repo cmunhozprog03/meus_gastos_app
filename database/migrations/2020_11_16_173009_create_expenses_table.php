@@ -15,6 +15,12 @@ class CreateExpensesTable extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+
+            $table->string('description');
+            $table->integer('type');
+            $table->integer('amount'); //29,90 -> 2990  | 9,99 -> 999
+            
             $table->timestamps();
         });
     }
